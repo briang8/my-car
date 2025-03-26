@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Car Info Finder</title>
+    <link rel="stylesheet" href="style.css">
+    <script type="text/javascript" src="http://www.carqueryapi.com/js/jquery.min.js"></script>
+    <script type="text/javascript" src="http://www.carqueryapi.com/js/carquery.0.3.4.js"></script>
+    <script>
+        $(document).ready(function() {
+            var carquery = new CarQuery();
+            carquery.init();
+            carquery.setFilters({ sold_in_us: true });
+            carquery.initYearMakeModelTrim('car-years', 'car-makes', 'car-models', 'car-model-trims');
+            $('#cq-show-data').click(function() { carquery.populateCarData('car-model-data'); });
+        });
+    </script>
+</head>
+<body>
+    <div class="container">
+        <h1>Car Information Finder</h1>
+        <div class="search-box">
+            <select id="car-years"></select>
+            <select id="car-makes"></select>
+            <select id="car-models"></select>
+            <select id="car-model-trims"></select>
+            <button id="cq-show-data">Show Data</button>
+        </div>
+        <div id="car-model-data"></div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
