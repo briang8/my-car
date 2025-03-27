@@ -44,3 +44,17 @@ $(document).ready(function() {
     });
 });
 
+$(document).ready(function () {
+    $('#search-again').click(function () {
+        $('.search-box select').prop('selectedIndex', 0); // Reset dropdowns
+        $('#car-model-data').fadeOut();
+        $(this).fadeOut();
+        carquery.init(); // Re-initialize car selection
+    });
+
+    // New Reset Button Functionality
+    $('#reset-all').click(function () {
+        location.reload(); // Reloads the page to reset everything
+    });
+});
+
