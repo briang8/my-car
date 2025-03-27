@@ -7,28 +7,38 @@
     <link rel="stylesheet" href="style.css">
     <script type="text/javascript" src="https://www.carqueryapi.com/js/jquery.min.js"></script>
     <script type="text/javascript" src="https://www.carqueryapi.com/js/carquery.0.3.4.js"></script>
-    <script>
-        $(document).ready(function() {
-            var carquery = new CarQuery();
-            carquery.init();
-            carquery.setFilters({ sold_in_us: true });
-            carquery.initYearMakeModelTrim('car-years', 'car-makes', 'car-models', 'car-model-trims');
-            $('#cq-show-data').click(function() { carquery.populateCarData('car-model-data'); });
-        });
-    </script>
 </head>
 <body>
     <div class="container">
-        <h1>Car Information Finder</h1>
+        <h1 style="color: white;">Car Information Finder</h1>
         <div class="search-box">
-            <select id="car-years" " ></select>
-            <select id="car-makes"></select>
-            <select id="car-models"></select>
-            <select id="car-model-trims"></select>
-            <button id="cq-show-data">Show Data</button>
+            <div class="dropdown-container">
+                <label for="car-years">Select Year:</label>
+                <select id="car-years"></select>
+            </div>
+    
+            <div class="dropdown-container">
+                <label for="car-makes">Select Make:</label>
+                <select id="car-makes"></select>
+            </div>
+    
+            <div class="dropdown-container">
+                <label for="car-models">Select Model:</label>
+                <select id="car-models"></select>
+            </div>
+    
+            <div class="dropdown-container">
+                <label for="car-model-trims">Select Trim:</label>
+                <select id="car-model-trims"></select>
+            </div>
+    
+            <button id="cq-show-data" style="width: auto; padding: 8px 16px; font-size: 14px; background-color: #4B5320; color: white; border: none; border-radius: 5px; cursor: pointer; margin-top: 10px">Show Data</button>
+          <!--<button id="reset-search" style="width: auto; padding: 8px 16px; font-size: 14px; background-color: #4B5320; color: white; border: none; border-radius: 5px; cursor: pointer; margin-top: 10px;">Reset</button>-->
         </div>
-        <div id="car-model-data"></div>
+        <div id="car-model-data" class="results-container"></div>
+        <button id="search-again" style="display:none;">Search Again</button>
     </div>
+    
     <script src="script.js"></script>
 </body>
 </html>
