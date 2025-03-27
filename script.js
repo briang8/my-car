@@ -40,16 +40,7 @@ $(document).ready(function() {
         $('.search-box select').prop('selectedIndex', 0);
         $('#car-model-data').fadeOut();
         $(this).fadeOut();
+        carquery.init();
     });
-});
-$('#reset-search').click(function() {
-    // Reset all dropdowns to their first option
- //   $('#car-years, #car-makes, #car-models, #car-model-trims').val('');
-
-    // Hide the results container and search again button
-    $('#car-model-data, #search-again').fadeOut();
-    
-    // Reinitialize CarQuery to refresh dropdowns
-   // carquery.init();
 });
 
