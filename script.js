@@ -1,17 +1,27 @@
 $(document).ready(function() {
+    // Initialize CarQuery API
     var carquery = new CarQuery();
     carquery.init();
+
+    // Set filter to only show cars sold in the US
     carquery.setFilters({ sold_in_us: true });
+
+    // Populate dropdowns with car data
     carquery.initYearMakeModelTrim('car-years', 'car-makes', 'car-models', 'car-model-trims');
 
+    // Event Listener for "Search" button
     $('#cq-show-data').click(function() {
+        // Display a loading message while fetching data
         $('#car-model-data').html("<p>Loading...</p>").fadeIn();
+
+        // Fetch car data and populate results
         carquery.populateCarData('car-model-data', function(data) {
             if (!data || $.isEmptyObject(data)) {
                 $('#car-model-data').html("<p>No data available for this model.</p>");
                 return;
             }
 
+            // Define the fields to display
             let details = "";
             const fields = {
                 year: "Year",
@@ -25,36 +35,20 @@ $(document).ready(function() {
                 model_top_speed_kph: "Top Speed (km/h)"
             };
 
+            // Loop through the fields and display data
             for (let key in fields) {
                 if (data[key] && data[key] !== "Not Available") {
                     details += `<p><strong>${fields[key]}:</strong> ${data[key]}</p>`;
                 }
             }
 
+            // Show results or message if no data is available
             $('#car-model-data').html(details || "<p>No details available.</p>").fadeIn();
-            $('#search-again').fadeIn();
         });
     });
 
-    $('#search-again').click(function() {
-        $('.search-box select').prop('selectedIndex', 0);
-        $('#car-model-data').fadeOut();
-        $(this).fadeOut();
-        carquery.init();
-    });
-});
-
-$(document).ready(function () {
-    $('#search-again').click(function () {
-        $('.search-box select').prop('selectedIndex', 0); // Reset dropdowns
-        $('#car-model-data').fadeOut();
-        $(this).fadeOut();
-        carquery.init(); // Re-initialize car selection
-    });
-
-    // New Reset Button Functionality
+    // Event Listener for "Reset" button
     $('#reset-all').click(function () {
-        location.reload(); // Reloads the page to reset everything
+        location.reload(); // Reload the page to reset selections
     });
 });
-
