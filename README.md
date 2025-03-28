@@ -1,7 +1,9 @@
 Overview:
+
 This Web App allows a user to look up specific car details by selecting the year,car make and model from drop down menus. They then click the search button and the application fetches real-time data from the CarQuery api and it displays the infromation.
 
 Features:
+
 -Drop down menus for selection.
 
 -A search button to fetch the information.
