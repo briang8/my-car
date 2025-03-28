@@ -1,10 +1,10 @@
 $(document).ready(function() {
-    // Initialize CarQuery API
+    // Initializing CarQuery API
     var carquery = new CarQuery();
     carquery.init();
 
     // Set filter to only show cars sold in the US
-    carquery.setFilters({ sold_in_us: true });
+    carquery.setFilters({ sold_in_us: false });
 
     // Populate dropdowns with car data
     carquery.initYearMakeModelTrim('car-years', 'car-makes', 'car-models', 'car-model-trims');
