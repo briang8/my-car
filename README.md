@@ -11,5 +11,5 @@ How the application works:
 You first Select the year the car was made 
 Then Select Car make
 After selecting the first two options the last two drop down menus automatically update by selecting the first option on each drop down.
-Search For details: After selecting you can hit the search button and the application fetches the cardetails.
+Search For details: After selecting you can click the search button and the application wil fetch the car details.
 Results: The application then displas all the available information about the truck and displays a "Not available" message on the specific detail that isn't available.
